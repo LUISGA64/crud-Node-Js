@@ -1,0 +1,33 @@
+<%-include('../layout/cabecera.ejs') %>
+    <div class="container">
+        <div class="card mt-4">
+            <div class="card-header">
+                Header
+            </div>
+            <div class="card-body">
+                <form method="post" action="/articulos" enctype="multipart/form-data">
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-md-6">
+                            <label for="articulo">Articulo</label>
+                            <input id="articulo" class="form-control" type="text" name="articulo">
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-md-6">
+                            <label for="imagen">Imagen</label>
+                            <input id="imagen" class="form-control-file" type="file" name="imagen">
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-end">
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                Footer
+            </div>
+        </div>
+    </div>
+    <%-include('../layout/pie.ejs')%>
