@@ -3,8 +3,10 @@ var conexion = mysql.createConnection({
     host: 'localhost',
     database: 'articulos',
     user: 'root',
-    password: ''
+    password: 'root'
 }, 'single');
+
+
 
 conexion.connect(
     (err) => {
