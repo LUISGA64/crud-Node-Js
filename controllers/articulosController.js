@@ -15,8 +15,11 @@ module.exports = {
 
     guardar: function(req, res) {
 
+        console.log("----------------")
         console.log(req.body);
+        console.log("----------------")
         console.log(req.file.filename);
+        console.log("----------------")
         articulo.insertar(conexion, req.body, req.file, function(error) {
             res.redirect('/articulos');
         });

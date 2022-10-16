@@ -1,9 +1,9 @@
-var mysql = require('mysql');
+/*var mysql = require('mysql');
 var conexion = mysql.createConnection({
     host: 'localhost',
     database: 'articulos',
     user: 'root',
-    password: 'root'
+    password: ''
 }, 'single');
 
 
@@ -17,5 +17,13 @@ conexion.connect(
         }
     }
 );
+*/
+
+const mongoose = require('mongoose');
+require('dotenv').config();
+
+var conexion = mongoose.connect(process.env.MONGODB_URI)
+    .then(() => console.log('conectado a MongoDB'))
+    .catch((error) => console.error(error));
 
 module.exports = conexion;
