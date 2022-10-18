@@ -5,25 +5,31 @@ module.exports = {
         conexion.query("select * from articulos", funcion);
     },
     insertar: function(conexion, datos, archivos, funcion) {
-        conexion.query("INSERT INTO articulos (articulo, descripcion, precio, caracteristicas, imagen) VALUES (?,?,?,?,?)", [datos.articulo, datos.descripcion, datos.precio, datos.caracteristicas, archivos.filename], funcion);
+        conexion.query("INSERT INTO articulos (articulo, descripcion, precio, caracteristicas, imagen) VALUES (?,?,?,?,?)", 
+        [datos.articulo, datos.descripcion, datos.precio, datos.caracteristicas, archivos.filename], funcion);
     }
 }*/
-
 const mongoose = require('mongoose');
-const productSchema = mongoose.Schema({
-    urlImage: {
-        type: String,
-        required: true,
+var productSchema = mongoose.Schema({
+    articulo: {
+        type: String
     },
-    description: {
-        type: String,
-        required: true
+    imagen: {
+        type: String
     },
-    features: {
+    descripcion: {
         type: String,
-        required: true
     },
-    price: {
-        type:
+    caracteristicas: {
+        type: String,
+    },
+    precio: {
+        type:Number,
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
     }
 });
+
+module.exports = mongoose.model('Product',productSchema);
